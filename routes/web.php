@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlockController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/', [PageController::class, 'homePage'])->name('pages.home');
+
+Route::get('/blocks', [BlockController::class, 'index'])->name('blocks.index');
+Route::get('/blocks/{id}', [BlockController::class, 'show'])->name('blocks.show');
