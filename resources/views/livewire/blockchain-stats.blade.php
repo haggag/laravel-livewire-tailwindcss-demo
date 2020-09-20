@@ -9,7 +9,7 @@
                 </div>
                 <div class="hidden lg:flex">
                     <span class="appearance-none text-sm py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                        Last updated: {{ $timestamp }}
+                        Last updated: {{ $this->timestamp }}
                     </span>
 
                 </div>
@@ -20,8 +20,7 @@
             <div class="w-full lg:w-1/3 text-center py-8">
                 <div class="lg:border-r">
                     <div class="text-grey-darker mb-2">
-
-                        <span class="text-5xl">Production</span>
+                        <span class="text-5xl">{{ $this->environment }}</span>
                     </div>
                     <div class="text-sm uppercase text-grey tracking-wide">
                         Network
@@ -32,7 +31,7 @@
                 <div class="lg:border-r">
                     <div class="text-grey-darker mb-2">
 
-                        <span class="text-5xl">{{ $height }}</span>
+                        <span class="text-5xl">{{ $this->height }}</span>
 
                     </div>
                     <div class="text-sm uppercase text-grey tracking-wide">
@@ -44,8 +43,7 @@
                 <div>
                     <div class="text-grey-darker mb-2">
 
-                  <span class="text-5xl">
-                        {{ $supply }} </span>
+                  <span class="text-5xl">{{ $this->supply }}</span>
                         <span class="text-3xl align-top">Ѧ</span>
                     </div>
                     <div class="text-sm uppercase text-grey tracking-wide">

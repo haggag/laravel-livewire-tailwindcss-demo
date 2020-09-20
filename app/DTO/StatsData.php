@@ -18,11 +18,23 @@ class StatsData extends DataTransferObject
         return new self($response['data']);
     }
 
+    public static function newObj($height=0, $id='', $supply='', $timestamp=''): self
+    {
+         return new self(["block" => ["height" => $height, "id" => $id],
+             "supply" => $supply, "timestamp" => $timestamp]);
+    }
+
     public BlockData $block;
     public string $supply;
+    public string $timestamp = '';
 
-    public function supply() : string
+    public function empty() : bool
     {
-        return $this->supply;
+        return empty($this->supply);
+    }
+
+    public function touch($timestamp)
+    {
+        $this->timestamp = $timestamp;
     }
 }
