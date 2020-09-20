@@ -24,7 +24,7 @@ class StatsData extends DataTransferObject
              "supply" => $supply, "timestamp" => $timestamp]);
     }
 
-    public BlockData $block;
+    public TimestampData $block;
     public string $supply;
     public string $timestamp = '';
 

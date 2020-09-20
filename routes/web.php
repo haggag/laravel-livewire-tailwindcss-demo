@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BlockController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'homePage'])->name('pages.home');
 
-Route::get('/blocks', [BlockController::class, 'index'])->name('blocks.index');
-Route::get('/blocks/{id}', [BlockController::class, 'show'])->name('blocks.show');
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+
+Route::get('/blocks', [TransactionController::class, 'index'])->name('blocks.index');
+Route::get('/blocks/{id}', [TransactionController::class, 'show'])->name('blocks.show');
