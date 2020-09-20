@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\StatsRepository;
+use App\Repositories\StatsRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(StatsRepositoryInterface::class, function ($app) {
+            return new StatsRepository(api_base(), config('ark.http_options'));
+        });
     }
 
     /**
